@@ -1,6 +1,6 @@
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import MyPicture from '../assets/projects/my pic.png'; // Import your picture here
+import MyPicture from '../assets/projects/my pic.png'; 
 
 const Home = () => {
   return (
@@ -13,22 +13,23 @@ const Home = () => {
           Hi, my name is
         </p>
         
-        {/* Flex container for name and image */}
-        <div className='flex items-center justify-between'>
-          <h1 className='text-4xl sm:text-7xl font-bold animate-typewriter overflow-hidden whitespace-nowrap'>
-            <span className='bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent'>
-              Syed Muhammad Fahad
-            </span>
-          </h1>
+        
+        <div className='flex flex-col-reverse sm:flex-row items-center justify-between'>
+          <div className='typewriter-container'> 
+            <h1 className='text-4xl sm:text-7xl font-bold animate-typewriter overflow-hidden whitespace-nowrap mb-0'>
+              <span className='bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent'>
+              Syed Muhammad Fahad.
+              </span>
+            </h1>
+          </div>
 
-          {/* Larger, Beautiful Image on the Right Side */}
-          <div className='relative w-60 h-60 overflow-hidden ml-8 rounded-full shadow-lg'>
+          <div className='relative w-40 sm:w-60 h-40 sm:h-60 overflow-hidden ml-0 sm:ml-8 rounded-full shadow-lg'>
             <img
               src={MyPicture}
               alt="My Picture"
               className='w-full h-full object-cover rounded-full transform transition-transform duration-500 hover:scale-105'
             />
-            <div className='absolute top-0 left-0 w-full h-full bg-white opacity-20 transform scale-y-[-1]'></div>
+            <div className='absolute top-0 left-0 w-full h-full bg-white opacity-30 rounded-full'></div>
           </div>
         </div>
 
@@ -41,7 +42,6 @@ const Home = () => {
           exceptional digital experiences. Currently, I’m focused on building responsive Mern-stack web applications.
         </p>
         
-        {/* Animated Button */}
         <div>
           <button className='text-white group border-2 px-6 py-3 my-2 flex items-center transition duration-500 ease-in-out bg-gradient-to-r from-[#ff7b72] to-[#e85d9e] hover:from-[#e85d9e] hover:to-[#ff7b72] hover:border-[#ff7b72]'>
             View Work

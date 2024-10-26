@@ -4,59 +4,92 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
-
-@layer base{
-    body{
-        @apply font-[Raleway];
-    }
-    li{
-        @apply px-4;
-        @apply cursor-pointer 
-    }
-}
-@keyframes backgroundAnimation {
-    0% {
-      background-color: #0a192f;
-    }
-    50% {
-      background-color: #1e2a38; /* Midpoint color */
-    }
-    100% {
-      background-color: #0a192f;
-    }
-  }
-  
+@layer base {
   body {
-    animation: backgroundAnimation 10s ease infinite; /* Adjust duration as needed */
+    @apply font-[Raleway];
+    animation: backgroundAnimation 10s ease infinite;
   }
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
+  li {
+    @apply px-4;
+    @apply cursor-pointer;
   }
-  
-  .animate-typewriter {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap; /* Prevents wrapping */
-    border-right: 0.15em solid #ff7b72; /* Typewriter cursor */
-    animation: typewriter 4s steps(40, end) forwards,
-               blink-caret 0.75s step-end infinite; /* Blink effect */
+}
+
+.fixed {
+  z-index: 50; /* Ensures the navbar is on top */
+}
+
+/* Background Animation */
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #0a192f;
   }
-  
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #ff7b72; /* Color of the cursor */
-    }
+  50% {
+    background-color: #1e2a38;
   }
-  .text-shadow {
+  100% {
+    background-color: #0a192f;
+  }
+}
+
+/* Typewriter Effect */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid #ff7b72;
+  animation: typewriter 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite; /* Adjusted duration and steps */
+  max-width: 100%; /* Prevent overflow */
+}
+
+/* New class to control overflow */
+.typewriter-container {
+  overflow: hidden; /* Hide overflow */
+  width: 100%; /* Take full width */
+}
+
+.text-shadow {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-  
+@media (max-width: 768px) {
+  body {
+    animation: backgroundAnimation 8s ease infinite; 
+  }
+  .animate-typewriter {
+    font-size: 1.5rem; /* Adjusted for visibility */
+  }
+  .typewriter-container {
+    max-width: 90%; /* Allow more space for mobile */
+  }
+  li {
+    @apply px-2 py-1 text-base; 
+  }
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (max-width: 480px) {
+  .animate-typewriter {
+    font-size: 1.25rem; /* Further adjust for mobile */
+  }
+  .typewriter-container {
+    max-width: 80%; /* Further limit width */
+  }
+  li {
+    @apply text-sm;
+  }
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
