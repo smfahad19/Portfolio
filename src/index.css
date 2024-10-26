@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+
+@layer base{
+    body{
+        @apply font-[Raleway];
+    }
+    li{
+        @apply px-4;
+        @apply cursor-pointer 
+    }
+}
+@keyframes backgroundAnimation {
+    0% {
+      background-color: #0a192f;
+    }
+    50% {
+      background-color: #1e2a38; /* Midpoint color */
+    }
+    100% {
+      background-color: #0a192f;
+    }
+  }
+  
+  body {
+    animation: backgroundAnimation 10s ease infinite; /* Adjust duration as needed */
+  }
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .animate-typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap; /* Prevents wrapping */
+    border-right: 0.15em solid #ff7b72; /* Typewriter cursor */
+    animation: typewriter 4s steps(40, end) forwards,
+               blink-caret 0.75s step-end infinite; /* Blink effect */
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #ff7b72; /* Color of the cursor */
+    }
+  }
+  .text-shadow {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+  
